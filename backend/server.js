@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/royalJewelsDB")
+mongoose.connect("mongodb+srv://deeplaxmilad518_db_user:qedeo1oQL1hZV0pe@cluster0.oyab0ma.mongodb.net/?appName=Cluster0")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
