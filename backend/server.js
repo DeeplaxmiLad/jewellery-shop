@@ -19,9 +19,12 @@ app.use("/api/orders", require("./routes/orderRoutes"));
 
 app.listen(5000, () => console.log("Server running on port 5000"));
 
-// Serve React build
+const path = require("path");
+
+// Serve React build folder
 app.use(express.static(path.join(__dirname, "build")));
 
+// Catch-all route for React
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
