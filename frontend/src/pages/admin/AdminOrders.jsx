@@ -1,0 +1,74 @@
+import React, { useEffect, useState } from "react";
+import API from "../../api/axios";
+import "../../styles/AdminOrders.css";
+
+function AdminOrders() {
+  const [orders, setOrders] = useState([]);
+
+  const fetchOrders = async () => {
+    const res = await API.get("/orders");
+    setOrders(res.data);
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const updateStatus = async (id, status) => {
+    await API.put(`/orders/${id}`, { status });
+    fetchOrders();
+  };
+
+  const deleteOrder = async (id) => {
+    await API.delete(`/orders/${id}`);
+    fetchOrders();
+  };
+
+  return (
+    <div className="admin-orders">
+      <h1>Customer Orders</h1>
+
+      {orders.map((order) => (
+        <div key={order._id} className="order-card">
+
+          <div className="order-header">
+            <h3>{order.customerName}</h3>
+            <span className={`status ${order.status}`}>
+              {order.status}
+            </span>
+          </div>
+
+          <p><strong>Phone:</strong> {order.phone}</p>
+          <p><strong>Address:</strong> {order.address}</p>
+
+          <div className="order-items">
+            {order.items.map((item, index) => (
+              <div key={index}>
+                {item.name} × {item.quantity} — ₹{item.price}
+              </div>
+            ))}
+          </div>
+
+          <h4>Total: ₹{order.totalAmount}</h4>
+
+          <div className="order-actions">
+            <button onClick={() => updateStatus(order._id, "Shipped")}>
+              Mark Shipped
+            </button>
+
+            <button onClick={() => updateStatus(order._id, "Delivered")}>
+              Mark Delivered
+            </button>
+
+            <button onClick={() => deleteOrder(order._id)}>
+              Delete
+            </button>
+          </div>
+
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default AdminOrders;

@@ -1,0 +1,125 @@
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 95%;
+  background: #5E1B5E;
+  padding: 18px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto Slab", serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.nav-logo a {
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 700;
+  color: #C6AE70;
+  letter-spacing: 2px;
+}
+
+/* Center Links */
+.nav-links {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+/* Gold underline hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background: #C6AE70;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #C6AE70;
+}
+
+/* Right Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Count badge style */
+.count {
+  background: #C6AE70;
+  color: #5E1B5E;
+  padding: 4px 8px;
+  border-radius: 50px;
+  font-size: 12px;
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+/* Login Button */
+.login-btn {
+  background: white;
+  color: #5E1B5E;
+  padding: 8px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #C6AE70;
+}
+
+/* Register Button */
+.register-btn {
+  background: #C6AE70;
+  color: #5E1B5E;
+  padding: 8px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.register-btn:hover {
+  background: white;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  .nav-right {
+    margin-top: 10px;
+  }
+}

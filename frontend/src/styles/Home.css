@@ -1,0 +1,170 @@
+/* ================= GLOBAL HOME ================= */
+
+.home {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Roboto Slab", serif;
+}
+
+/* ================= HERO SECTION ================= */
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: url("https://images.unsplash.com/photo-1603561596112-0a132b757442")
+    no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Purple overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(94, 27, 94, 0.65);
+  top: 0;
+  left: 0;
+}
+
+/* Hero Content */
+.hero-overlay {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.hero-overlay h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero-overlay p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero-btn {
+  background: #C6AE70;
+  color: #5E1B5E;
+  border: none;
+  padding: 14px 40px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.hero-btn:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+/* ================= FEATURED SECTION ================= */
+
+.featured {
+  padding: 100px 60px;
+  background: #f4f1ea;
+  text-align: center;
+}
+
+.featured h2 {
+  font-size: 36px;
+  color: #5E1B5E;
+  margin-bottom: 60px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #5E1B5E;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.featured-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.featured-card h3 {
+  padding: 25px;
+  font-size: 22px;
+}
+
+.featured-card:hover {
+  transform: translateY(-10px);
+}
+
+/* ================= WHY SECTION ================= */
+
+.why-us {
+  padding: 100px 60px;
+  text-align: center;
+  background: white;
+}
+
+.why-us h2 {
+  font-size: 36px;
+  color: #5E1B5E;
+  margin-bottom: 60px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.why-card {
+  background: #5E1B5E;
+  color: white;
+  padding: 50px 30px;
+  border-radius: 15px;
+  transition: 0.3s ease;
+}
+
+.why-card h3 {
+  color: #C6AE70;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.why-card:hover {
+  transform: scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 36px;
+  }
+
+  .hero-overlay p {
+    font-size: 16px;
+  }
+
+  .featured,
+  .why-us {
+    padding: 60px 20px;
+  }
+}
