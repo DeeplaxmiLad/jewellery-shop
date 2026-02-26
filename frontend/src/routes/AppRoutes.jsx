@@ -12,8 +12,11 @@ import AdminOrders from "../pages/admin/AdminOrders";
 import Wishlist from "../pages/user/Wishlist";
 import Cart from "../pages/user/Cart";
 import Checkout from "../pages/user/Checkout";
+<<<<<<< HEAD
 import PaymentMethod from "./pages/PaymentMethod";
 import TrackOrder from "./pages/TrackOrder";
+=======
+>>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
 
 
 
@@ -29,9 +32,13 @@ function AppRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
+<<<<<<< HEAD
         <Route path="/payment" element={<PaymentMethod />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/track/:id" element={<TrackOrder />} />
+=======
+        <Route path="/checkout" element={<Checkout />} />
+>>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
         <Route
           path="/admin"
           element={

@@ -32,6 +32,7 @@ function AdminOrders() {
         <div key={order._id} className="order-card">
 
           <div className="order-header">
+<<<<<<< HEAD
   <h3>{order.customerName}</h3>
 
   <select
@@ -45,6 +46,13 @@ function AdminOrders() {
     <option value="Delivered">Delivered</option>
   </select>
 </div>
+=======
+            <h3>{order.customerName}</h3>
+            <span className={`status ${order.status}`}>
+              {order.status}
+            </span>
+          </div>
+>>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
 
           <p><strong>Phone:</strong> {order.phone}</p>
           <p><strong>Address:</strong> {order.address}</p>
