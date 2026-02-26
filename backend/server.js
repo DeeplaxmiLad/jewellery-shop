@@ -24,18 +24,21 @@ app.use("/api/orders", require("./routes/orderRoutes"));
 
 // ================== SERVE FRONTEND ==================
 
-// IMPORTANT: your build is inside backend/build
-app.use(express.static(path.join(__dirname, "build")));
+const http = require("http");
+const { Server } = require("socket.io");
 
-// Use /* instead of *
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: "*"
+  }
 });
 
+app.set("io", io);
 
-// Start Server
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -16,12 +16,14 @@ router.get("/", async (req, res) => {
 });
 
 // Update Status
-router.put("/:id", async (req, res) => {
-  const order = await Order.findByIdAndUpdate(
-    req.params.id,
-    { status: req.body.status },
-    { new: true }
-  );
+router.put("/:id/status", async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  order.status = req.body.status;
+  await order.save();
+
+  const io = req.app.get("io");
+  io.emit("orderUpdated", order);
+
   res.json(order);
 });
 
