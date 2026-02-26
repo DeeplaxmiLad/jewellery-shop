@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // Update Status
-<<<<<<< HEAD
+
 router.put("/:id/status", async (req, res) => {
   const order = await Order.findById(req.params.id);
   order.status = req.body.status;
@@ -25,14 +25,14 @@ router.put("/:id/status", async (req, res) => {
   const io = req.app.get("io");
   io.emit("orderUpdated", order);
 
-=======
+
 router.put("/:id", async (req, res) => {
   const order = await Order.findByIdAndUpdate(
     req.params.id,
     { status: req.body.status },
     { new: true }
   );
->>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
+});
   res.json(order);
 });
 

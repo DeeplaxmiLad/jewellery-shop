@@ -13,10 +13,7 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.13.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "socket.io-client": "^4.8.3",
-=======
->>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -21,13 +21,12 @@ const orderSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-<<<<<<< HEAD
+
   status: {
   type: String,
   default: "Order Placed"
 }
-=======
->>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
+
 });
 
 module.exports = mongoose.model("Order", orderSchema);

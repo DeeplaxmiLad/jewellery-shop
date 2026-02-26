@@ -6,8 +6,12 @@ function AdminOrders() {
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
-    const res = await API.get("/orders");
-    setOrders(res.data);
+    try {
+      const res = await API.get("/orders");
+      setOrders(res.data);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+    }
   };
 
   useEffect(() => {
@@ -15,13 +19,21 @@ function AdminOrders() {
   }, []);
 
   const updateStatus = async (id, status) => {
-    await API.put(`/orders/${id}`, { status });
-    fetchOrders();
+    try {
+      await API.put(`/orders/${id}`, { status });
+      fetchOrders();
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
   };
 
   const deleteOrder = async (id) => {
-    await API.delete(`/orders/${id}`);
-    fetchOrders();
+    try {
+      await API.delete(`/orders/${id}`);
+      fetchOrders();
+    } catch (error) {
+      console.error("Error deleting order:", error);
+    }
   };
 
   return (
@@ -30,29 +42,25 @@ function AdminOrders() {
 
       {orders.map((order) => (
         <div key={order._id} className="order-card">
-
           <div className="order-header">
-<<<<<<< HEAD
-  <h3>{order.customerName}</h3>
-
-  <select
-    value={order.status}
-    onChange={(e) => updateStatus(order._id, e.target.value)}
-  >
-    <option value="Order Placed">Order Placed</option>
-    <option value="Packed">Packed</option>
-    <option value="Shipped">Shipped</option>
-    <option value="Out for Delivery">Out for Delivery</option>
-    <option value="Delivered">Delivered</option>
-  </select>
-</div>
-=======
             <h3>{order.customerName}</h3>
-            <span className={`status ${order.status}`}>
-              {order.status}
-            </span>
+
+            {/* STATUS DROPDOWN */}
+            <select
+              value={order.status}
+              onChange={(e) =>
+                updateStatus(order._id, e.target.value)
+              }
+            >
+              <option value="Order Placed">Order Placed</option>
+              <option value="Packed">Packed</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Out for Delivery">
+                Out for Delivery
+              </option>
+              <option value="Delivered">Delivered</option>
+            </select>
           </div>
->>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
 
           <p><strong>Phone:</strong> {order.phone}</p>
           <p><strong>Address:</strong> {order.address}</p>
@@ -68,19 +76,28 @@ function AdminOrders() {
           <h4>Total: ₹{order.totalAmount}</h4>
 
           <div className="order-actions">
-            <button onClick={() => updateStatus(order._id, "Shipped")}>
+            <button
+              onClick={() =>
+                updateStatus(order._id, "Shipped")
+              }
+            >
               Mark Shipped
             </button>
 
-            <button onClick={() => updateStatus(order._id, "Delivered")}>
+            <button
+              onClick={() =>
+                updateStatus(order._id, "Delivered")
+              }
+            >
               Mark Delivered
             </button>
 
-            <button onClick={() => deleteOrder(order._id)}>
+            <button
+              onClick={() => deleteOrder(order._id)}
+            >
               Delete
             </button>
           </div>
-
         </div>
       ))}
     </div>

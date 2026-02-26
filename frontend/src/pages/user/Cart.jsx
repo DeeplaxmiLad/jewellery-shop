@@ -98,15 +98,11 @@ function Cart() {
           <h2>Total: ₹{total.toLocaleString("en-IN")}</h2>
           <button
             className="checkout-btn"
-<<<<<<< HEAD
+
             onClick={() => navigate("/payment")}
           >
-            Proceed to Payment
-=======
             onClick={() => navigate("/checkout")}
-          >
             Proceed to Checkout
->>>>>>> 77bb0bba953c013e6022c84f1c623cf960851582
           </button>
         </div>
       )}
