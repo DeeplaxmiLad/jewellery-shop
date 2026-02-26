@@ -1,0 +1,110 @@
+.admin-dashboard {
+  padding: 40px;
+  font-family: "Roboto Slab", serif;
+  background: #f4f1ea;
+  min-height: 100vh;
+}
+
+.admin-dashboard h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #5E1B5E;
+}
+
+/* ================= FORM ================= */
+
+.admin-form {
+  max-width: 500px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-form input,
+.admin-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.admin-form button {
+  padding: 12px;
+  background: #5E1B5E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-form button:hover {
+  background: #7a257a;
+}
+
+/* ================= PRODUCTS ================= */
+
+.admin-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.admin-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.admin-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.admin-card h3 {
+  margin: 10px 0;
+  color: #5E1B5E;
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.admin-buttons button {
+  flex: 1;
+  margin: 5px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-buttons button:first-child {
+  background: #C6AE70;
+  color: white;
+}
+
+.admin-buttons button:last-child {
+  background: #c0392b;
+  color: white;
+}
+
+.admin-orders-btn {
+  padding: 10px 25px;
+  background: #5E1B5E;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+
+.admin-orders-btn:hover {
+  background: #7a247a;
+}
